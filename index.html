@@ -7,8 +7,35 @@
     <title>Video Player</title>
 </head>
 
-<body>
-
+<body class="min-w-[100dvw] min-h-[100dvh] flex items-center justify-center">
+    <div class="w-[50%] h-[50%] flex items-center justify-center relative overflow-hidden rounded-2xl">
+        <video class="w-full h-full" src="./public/ShadowOfWar.webm"></video>
+        <!-- controller -->
+        <div id="controller"
+            class="w-full h-[6rem] absolute bottom-0 left-0 right-0 bg-gray-300/40 flex flex-col items-center justify-center gap-y-4 px-2">
+            <div class="w-full h-[4px] bg-white"></div>
+            <div class="w-full flex items-center justify-between px-3">
+                <div class="flex items-center justify-center">
+                    <!-- play icon  -->
+                    <i class="fa-solid fa-play text-white cursor-pointer text-[22px]"></i>
+                    <!-- forward and backward icons  -->
+                    <div class="flex items-center justify-center gap-x-2 pl-6">
+                        <i class="fa-solid fa-backward text-white cursor-pointer text-[22px]"></i>
+                        <i class="fa-solid fa-forward text-white cursor-pointer text-[22px]"></i>
+                    </div>
+                    <!-- volume icons  -->
+                    <div class="flex items-center justify-center pl-6">
+                        <i class="fa-solid fa-volume-xmark text-white/80 cursor-pointer text-[22px]"></i>
+                        <i class="fa-solid fa-volume-low text-white cursor-pointer text-[22px] !hidden"></i>
+                        <i class="fa-solid fa-volume-high text-white cursor-pointer text-[22px] !hidden"></i>
+                    </div>
+                </div>
+                <i class="fa-solid fa-play text-white cursor-pointer text-[22px]"></i>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/7648dfc89d.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
