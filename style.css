@@ -1,3 +1,96 @@
-body {
-    background-color: #ff4d00;
+.hiddenBtn {
+  display: none !important;
+}
+
+/* متغیرها برای کنترل اندازه‌ها و رنگ‌ها */
+.yt-range {
+  --track-h: 2px; /* ضخامت خط */
+  --thumb: 12px; /* قطر دکمه */
+  --fill: #fff; /* رنگ قسمت پُر */
+  --empty: #9e9e9e; /* رنگ قسمت خالی */
+  --p: 0%; /* درصد پُرشدگی (با JS ست میشه) */
+
+  transition: all 0.3s ease-in-out; /* for translate smooth show or hidden range input */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80px;
+  height: var(--thumb);
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+/* WebKit (Chrome/Safari/Edge جدید) */
+.yt-range::-webkit-slider-runnable-track {
+  height: var(--track-h);
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--fill) 0 var(--p), var(--empty) var(--p) 100%);
+}
+.yt-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  width: var(--thumb);
+  height: var(--thumb);
+  border-radius: 50%;
+  background: #fff;
+  margin-top: calc((var(--track-h) - var(--thumb)) / 2);
+  transition: transform 0.15s ease;
+}
+.yt-range:hover::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+
+/* Firefox */
+.yt-range::-moz-range-track {
+  height: var(--track-h);
+  border-radius: 999px;
+  background: var(--empty);
+}
+.yt-range::-moz-range-progress {
+  height: var(--track-h);
+  border-radius: 999px;
+  background: var(--fill);
+}
+.yt-range::-moz-range-thumb {
+  width: var(--thumb);
+  height: var(--thumb);
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  transition: transform 0.15s ease;
+}
+.yt-range:hover::-moz-range-thumb {
+  transform: scale(1.1);
+}
+
+/* (اختیاری) IE/Edge قدیمی */
+.yt-range::-ms-track {
+  height: var(--track-h);
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.yt-range::-ms-fill-lower {
+  background: var(--fill);
+  border-radius: 999px;
+}
+.yt-range::-ms-fill-upper {
+  background: var(--empty);
+  border-radius: 999px;
+}
+.yt-range::-ms-thumb {
+  width: var(--thumb);
+  height: var(--thumb);
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+}
+
+.rangehidden {
+  width: 0;
+  visibility: hidden;
+}
+.rangeshow {
+  width: 80px;
+  visibility: visible;
 }
