@@ -11,6 +11,9 @@ const range = document.querySelector("#range");
 const inputRange = document.querySelector("#inputRange");
 const inputTime = document.querySelector("#inputTime");
 const controller = document.querySelector("#controller");
+const backward = document.querySelector("#backward");
+const forward = document.querySelector("#forward");
+
 let showController = false;
 
 video.volume = 0.3;
@@ -174,6 +177,20 @@ mute.addEventListener("click", () => {
   mute.classList.add("hiddenBtn");
 });
 
+forward.addEventListener("click", () => {
+  if (!showController) {
+    enableContoller();
+  }
+  video.currentTime = video.currentTime + 5;
+});
+
+backward.addEventListener("click", () => {
+  if (!showController) {
+    enableContoller();
+  }
+  video.currentTime = video.currentTime - 5;
+});
+
 range.addEventListener("mouseenter", () => {
   inputRange.classList.remove("rangehidden");
 });
@@ -242,5 +259,5 @@ const enableContoller = () => {
   setTimeout(() => {
     controller.classList.add("contollerhidden");
     showController = false;
-  }, 4000);
+  }, 5000);
 };
