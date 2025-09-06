@@ -183,7 +183,8 @@
   width: 0;
   visibility: hidden;
 }
-.rangeshow {
-  width: 80px;
-  visibility: visible;
+
+.contollerhidden {
+  bottom: -5rem;
+  visibility: hidden;
 }

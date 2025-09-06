@@ -10,10 +10,15 @@ const mute = document.querySelector("#mute");
 const range = document.querySelector("#range");
 const inputRange = document.querySelector("#inputRange");
 const inputTime = document.querySelector("#inputTime");
+const controller = document.querySelector("#controller");
+let showController = false;
 
 video.volume = 0.3;
 
 document.addEventListener("keydown", (e) => {
+  if (!showController) {
+    enableContoller();
+  }
   if (e.key === " ") {
     if (video.paused) {
       video.play();
@@ -218,3 +223,24 @@ video.addEventListener("timeupdate", () => {
 inputTime.addEventListener("input", (e) => {
   video.currentTime = (e.target.value * video.duration) / 100;
 });
+
+container.addEventListener("mouseenter", () => {
+  if (!showController) {
+    enableContoller();
+  }
+});
+
+container.addEventListener("mousemove", () => {
+  if (!showController) {
+    enableContoller();
+  }
+});
+
+const enableContoller = () => {
+  controller.classList.remove("contollerhidden");
+  showController = true;
+  setTimeout(() => {
+    controller.classList.add("contollerhidden");
+    showController = false;
+  }, 4000);
+};
