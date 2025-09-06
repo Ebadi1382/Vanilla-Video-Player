@@ -15,33 +15,34 @@
         </video>
         <!-- controller -->
         <div id="controller"
-            class="w-full h-[5rem] absolute bottom-0 left-0 right-0 bg-gray-300/40 rounded-b-2xl flex flex-col items-center justify-center gap-y-4 px-2">
-            <div class="w-full h-[4px] bg-white"></div>
-            <div class="w-full flex items-center justify-between px-3">
+            class="w-full h-[5rem] absolute bottom-0 left-0 right-0 rounded-b-2xl flex flex-col items-center justify-center gap-y-4 px-2">
+            <input id="inputTime" type="range" class="yt-time" value="0" aria-label="Time">
+            <!-- icons -->
+            <div class="w-full flex items-center justify-between px-3 pb-3">
                 <div class="flex items-center justify-center">
                     <!-- play/stop icon  -->
-                    <i id="play" class="fa-solid fa-play text-white cursor-pointer text-[22px]"></i>
-                    <i id="stop" class="fa-solid fa-pause text-white cursor-pointer text-[22px] hiddenBtn"></i>
+                    <i id="play" class="fa-solid fa-play text-white cursor-pointer text-[25px]"></i>
+                    <i id="stop" class="fa-solid fa-pause text-white cursor-pointer text-[25px] hiddenBtn"></i>
                     <!-- forward and backward icons  -->
                     <div class="flex items-center justify-center gap-x-2 pl-6">
-                        <i class="fa-solid fa-backward text-white cursor-pointer text-[22px]"></i>
-                        <i class="fa-solid fa-forward text-white cursor-pointer text-[22px]"></i>
+                        <i class="fa-solid fa-backward text-white cursor-pointer text-[25px]"></i>
+                        <i class="fa-solid fa-forward text-white cursor-pointer text-[25px]"></i>
                     </div>
                     <!-- volume icons  -->
                     <div id="range" class="flex items-center justify-center pl-6">
                         <i id="mute"
-                            class="fa-solid fa-volume-xmark text-white/80 cursor-pointer text-[22px] hiddenBtn"></i>
-                        <i id="mediumVolume" class="fa-solid fa-volume-low text-white cursor-pointer text-[22px]"></i>
+                            class="fa-solid fa-volume-xmark text-white/80 cursor-pointer text-[25px] hiddenBtn"></i>
+                        <i id="mediumVolume" class="fa-solid fa-volume-low text-white cursor-pointer text-[25px]"></i>
                         <i id="highVolume"
-                            class="fa-solid fa-volume-high text-white cursor-pointer text-[22px] hiddenBtn"></i>
+                            class="fa-solid fa-volume-high text-white cursor-pointer text-[25px] hiddenBtn"></i>
                         <input id="inputRange" type="range" class="yt-range rangehidden ml-3" min="0" max="100"
-                            value="30" step="1" aria-label="Volume">
+                            value="30" step="0" aria-label="Volume">
                     </div>
                 </div>
                 <div class="flex items-center justify-center">
-                    <i id="fullscreen" class="fa-solid fa-expand text-white cursor-pointer text-[22px]"></i>
+                    <i id="fullscreen" class="fa-solid fa-expand text-white cursor-pointer text-[25px]"></i>
                     <i id="miniFullscreen"
-                        class="fa-solid fa-compress text-white cursor-pointer text-[22px] hiddenBtn"></i>
+                        class="fa-solid fa-compress text-white cursor-pointer text-[25px] hiddenBtn"></i>
                 </div>
             </div>
         </div>

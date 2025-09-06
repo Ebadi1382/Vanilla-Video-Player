@@ -1,7 +1,7 @@
 .hiddenBtn {
   display: none !important;
 }
-
+/* --------------------------------------------------------volume range------------------------------------------------------ */
 /* متغیرها برای کنترل اندازه‌ها و رنگ‌ها */
 .yt-range {
   --track-h: 2px; /* ضخامت خط */
@@ -37,7 +37,7 @@
   transition: transform 0.15s ease;
 }
 .yt-range:hover::-webkit-slider-thumb {
-  transform: scale(1.1);
+  transform: scale(1.3);
 }
 
 /* Firefox */
@@ -60,7 +60,7 @@
   transition: transform 0.15s ease;
 }
 .yt-range:hover::-moz-range-thumb {
-  transform: scale(1.1);
+  transform: scale(1.3);
 }
 
 /* (اختیاری) IE/Edge قدیمی */
@@ -83,6 +83,99 @@
   height: var(--thumb);
   border-radius: 50%;
   background: #fff;
+  border: none;
+}
+
+.rangehidden {
+  width: 0;
+  visibility: hidden;
+}
+.rangeshow {
+  width: 80px;
+  visibility: visible;
+}
+/* --------------------------------------------------------time range------------------------------------------------------ */
+/* متغیرها برای کنترل اندازه‌ها و رنگ‌ها */
+.yt-time {
+  --track-h: 2px; /* ضخامت خط */
+  --thumb: 12px; /* قطر دکمه */
+  --fillT: #ff0000; /* رنگ قسمت پُر */
+  --emptyT: #c7c6c6; /* رنگ قسمت خالی */
+  --t: 0%; /* درصد پُرشدگی (با JS ست میشه) */
+
+  transition: all 0.3s ease-in-out; /* for translate smooth show or hidden range input */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: var(--thumb);
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+/* WebKit (Chrome/Safari/Edge جدید) */
+.yt-time::-webkit-slider-runnable-track {
+  height: var(--track-h);
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--fillT) 0 var(--t), var(--emptyT) var(--t) 100%);
+}
+.yt-time::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  width: var(--thumb);
+  height: var(--thumb);
+  border-radius: 50%;
+  background: #ff0000;
+  margin-top: calc((var(--track-h) - var(--thumb)) / 2);
+  transition: transform 0.15s ease;
+}
+.yt-time:hover::-webkit-slider-thumb {
+  transform: scale(1.5);
+}
+
+/* Firefox */
+.yt-time::-moz-range-track {
+  height: var(--track-h);
+  border-radius: 999px;
+  background: var(--emptyT);
+}
+.yt-time::-moz-range-progress {
+  height: var(--track-h);
+  border-radius: 999px;
+  background: var(--fillT);
+}
+.yt-time::-moz-range-thumb {
+  width: var(--thumb);
+  height: var(--thumb);
+  border-radius: 50%;
+  border: none;
+  background: #ff0000;
+  transition: transform 0.15s ease;
+}
+.yt-time:hover::-moz-range-thumb {
+  transform: scale(1.1);
+}
+
+/* (اختیاری) IE/Edge قدیمی */
+.yt-time::-ms-track {
+  height: var(--track-h);
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.yt-time::-ms-fill-lower {
+  background: var(--fillT);
+  border-radius: 999px;
+}
+.yt-time::-ms-fill-upper {
+  background: var(--emptyT);
+  border-radius: 999px;
+}
+.yt-time::-ms-thumb {
+  width: var(--thumb);
+  height: var(--thumb);
+  border-radius: 50%;
+  background: #ff0000;
   border: none;
 }
 

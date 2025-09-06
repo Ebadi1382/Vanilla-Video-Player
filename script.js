@@ -9,6 +9,7 @@ const mediumVolume = document.querySelector("#mediumVolume");
 const mute = document.querySelector("#mute");
 const range = document.querySelector("#range");
 const inputRange = document.querySelector("#inputRange");
+const inputTime = document.querySelector("#inputTime");
 
 video.volume = 0.3;
 
@@ -59,7 +60,7 @@ document.addEventListener("keydown", (e) => {
       }
     }
   } else if (e.key === "m") {
-    if (video.muted) {
+    if (video.volume == 0) {
       video.volume = 1;
       inputRange.style.setProperty("--p", "100%");
       inputRange.value = 100;
@@ -204,4 +205,16 @@ document.querySelectorAll(".yt-range").forEach((el) => {
     }
   });
   el.addEventListener("change", () => setRangeBg(el));
+});
+
+video.addEventListener("timeupdate", () => {
+  const currentSeconds = video.currentTime;
+  const totallSeconds = video.duration;
+  // You can format and display currentSeconds as needed (e.g., minutes:seconds)
+  inputTime.style.setProperty("--t", ((currentSeconds + 0.5) / totallSeconds).toFixed(2) * 100 + "%");
+  inputTime.value = (currentSeconds / totallSeconds).toFixed(2) * 100;
+});
+
+inputTime.addEventListener("input", (e) => {
+  video.currentTime = (e.target.value * video.duration) / 100;
 });
