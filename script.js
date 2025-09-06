@@ -13,8 +13,12 @@ const inputTime = document.querySelector("#inputTime");
 const controller = document.querySelector("#controller");
 const backward = document.querySelector("#backward");
 const forward = document.querySelector("#forward");
+const total = document.querySelector("#total");
+const current = document.querySelector("#current");
 
 let showController = false;
+
+total.textContent = formatTime(video.duration);
 
 video.volume = 0.3;
 
@@ -229,12 +233,20 @@ document.querySelectorAll(".yt-range").forEach((el) => {
   el.addEventListener("change", () => setRangeBg(el));
 });
 
+// تابع برای تبدیل ثانیه به فرمت دقیقه:ثانیه
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+}
+
 video.addEventListener("timeupdate", () => {
   const currentSeconds = video.currentTime;
   const totallSeconds = video.duration;
   // You can format and display currentSeconds as needed (e.g., minutes:seconds)
   inputTime.style.setProperty("--t", ((currentSeconds + 0.5) / totallSeconds).toFixed(2) * 100 + "%");
   inputTime.value = (currentSeconds / totallSeconds).toFixed(2) * 100;
+  current.textContent = formatTime(video.currentTime);
 });
 
 inputTime.addEventListener("input", (e) => {
